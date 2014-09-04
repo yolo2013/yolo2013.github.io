@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Hua Xu&#39;s Blog</title>
+  <title>CSS Sprites | Hua Xu&#39;s Blog</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -199,7 +199,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
+                        <li id="navbar-title"><a href="#">CSS Sprites</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -218,130 +218,72 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/CSS/' style='color:#D5D5D5'>CSS</a>
+                      
+                      <a data-pjax href='/tags/前端/' style='color:#D5D5D5'>前端</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">CSS Sprites</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2014-09-04T09:06:21.000Z"
+                              itemprop="datePublished">Sep 4 2014</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/前端/'>前端</a>
-                
-                <a data-pjax href='/tags/CSS/'>CSS</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/ol、ul的list-style不显示问题/">ol、ul的list-style不显示问题</a>
-            </h1>
+        <section class="post-content">
+            <p>在css开发中有一件非常令人头疼的东西：拼背景图片。比如一个项目中有三种按钮：button-normal, button-submit, button-cancel。一般的方式是个人手动在PSD中新建一个较大的画布，把三个按钮分别移到该画布上，最后通过background-position定位。这个过程中有两步是比较耗时且不合理的：</p>
+<pre><code>1.在css中对需要的图标进行定位，尤其是集成度非常高的图片，一张图片中可能有数十个图标，而且图标之间的位置并没有绝对正确的规律，没有像素眼去调整位置是很消磨耐心的工作；
+2.每一次有新的图标需要更新，都要注意不能移动以前图片的已有位置，然后再把新的图片添加进去，接着去为<span class="attribute">background-position</span>定位。
+</code></pre><p>但是出于对性能的追求，这件事情有时候还不得不做。事实上，在<strong>CSS</strong>和<strong>JavaScript</strong>文件的处理上也有类似的情况，目前已经有很好的解决办法，当人们厌倦了一直重复某件事情的时候，最终总会殊途同归：自动化。以Grunt举例，我想把scripts中所有的js文件合并并成app.min.js，grunt配置核心代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Merge javascript files.</span></div><div class="line">concat:</div><div class="line">  js: { src: <span class="string">'/scripts/**/*.js'</span>, dest: <span class="string">'/scripts/temp/app.js'</span> }</div><div class="line">},</div><div class="line"><span class="comment">// Minifire javascript files.</span></div><div class="line">uglify: {</div><div class="line">  build: {</div><div class="line">    files: { <span class="string">'/scripts/app.min.js'</span>: <span class="string">'/scripts/temp/app.js'</span> }</div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T09:10:57.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                今天在项目中遇到一个问题，我使用ol，并且在css里设置list-style不为none，但是始终显示不了序号，当然最初我认为是css样式层叠被覆盖，但是连最终神器都用上了：
-1ol { list-style-type: decimal!important; }
+<p>一句grunt命令操作完成。</p>
+<h3 id="Glue">Glue</h3>
+<p>接下来介绍的这个命令行工具<strong>glue</strong>做的甚至更多，假设我们有一个存放图片的文件夹scene,在同级目录下执行： </p>
+<pre><code><span class="title">glue</span> img css
+</code></pre><p>发现img文件夹下的图片自动合并至css文件夹，生成以img命名的图片：img.png，和img.css，这个图片我们都知道是合并后的总图片，这个css文件是什么？打开看看：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class">.sprite-scene-weibo</span>,</div><div class="line"><span class="class">.website</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">background-image</span>:<span class="value"> <span class="function">url</span>(<span class="string">'scene.png'</span>)</span></span>;</div><div class="line">    <span class="rule"><span class="attribute">background-repeat</span>:<span class="value"> no-repeat</span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="class">.sprite-scene-weibo</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">background-position</span>:<span class="value"> <span class="number">0</span> <span class="number">0</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">52px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">52px</span></span></span>;</div><div class="line"><span class="rule">}</span></div><div class="line"><span class="class">.sprite-scene-website</span> <span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">background-position</span>:<span class="value"> -<span class="number">52px</span> <span class="number">0</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">52px</span></span></span>;</div><div class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">52px</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
 
-问题却还是没有解决，我知道我该考虑其它原因了。
-很少见的，在Google里没有第一时间搜到答案。
-于是新建一个页面，发现一切正常，经过一番折腾，在reset.css里发现
-1
-                
-            </p>
-            
+<p>原来是背景图片定位的css代码！这样的话大功告成，之前提出的两个问题全部解决！如果有图片更新，把图片放到文件夹再执行glue命令即可。</p>
+<p>还没有完，<strong>Glue</strong>做的比我们想象的更多，列一点可能是最无关紧要的：Retina支持。</p>
+<pre><code><span class="comment">glue</span> <span class="comment">img</span> <span class="comment">css</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">retina</span>
+</code></pre><p>会发现除了生成一个scene.png以外，多了一个scene@2x.png。非常简单，配合retina.js使用优化Retina也只是分分钟！</p>
+<p>时间紧迫，午休结束，安装方法和更详细的使用请到自行到<strong>Glue</strong>的Github主页查看：<a href="https://github.com/jorgebastida/glue" target="_blank" rel="external">https://github.com/jorgebastida/glue</a></p>
+<h3 id="图形工具">图形工具</h3>
+<p>也试用了几个图形化的工具，感觉都不太满意，UI难看，用起来也不如命令行来的方便，有一个基于Adobe air的bg2css欢迎各位去尝试。</p>
+
         </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/CSS/'>CSS</a>
-                
-                <a data-pjax href='/tags/前端/'>前端</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/CSS-Sprites/">CSS Sprites</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T09:06:21.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                在css开发中有一件非常令人头疼的东西：拼背景图片。比如一个项目中有三种按钮：button-normal, button-submit, button-cancel。一般的方式是个人手动在PSD中新建一个较大的画布，把三个按钮分别移到该画布上，最后通过background-position定位。这个过程中有两步是比较耗时且不合理的：
-1.在css中对需要的图标进行定位，尤其是集成度非常高的图片，一张图片中可能有数十个图标，而且图标之间的
-                
-            </p>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/JavaScript/'>JavaScript</a>
-                
-                <a data-pjax href='/tags/NodeJS/'>NodeJS</a>
-                
-                <a data-pjax href='/tags/Seajs/'>Seajs</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/This-is-NodeJS/">This is NodeJS</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T06:29:24.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                今天翻之前的目标记录，有一条”Write an article about NodeJS”被放在第一行，现在来完成它。
-关于NodeJS，我认为下面几个东西比较有意思：
-1.异步和回调；
-2.实时通信;
-3.模块化机制
-异步和回调
-前端工程师对这两个概念一定不会陌生，但是很多从Java或者C#转过来的JSer经常在这里出问题。由于对异步理解的薄弱，在使用最基础的ajax时写法粗糙，最常见的低级错误：
-// 请求
-function get
-                
-            </p>
+            <a data-pjax class="newer-posts" href="/2014/09/04/ol、ul的list-style不显示问题/">← Prev Post</a>
             
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/2014/09/04/This-is-NodeJS/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
+
+
     </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
 </main>
 
 

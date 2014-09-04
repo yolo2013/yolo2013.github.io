@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Hua Xu&#39;s Blog</title>
+  <title>ol、ul的list-style不显示问题 | Hua Xu&#39;s Blog</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -199,7 +199,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
+                        <li id="navbar-title"><a href="#">ol、ul的list-style不显示问题</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -218,130 +218,62 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/前端/' style='color:#D5D5D5'>前端</a>
+                      
+                      <a data-pjax href='/tags/CSS/' style='color:#D5D5D5'>CSS</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">ol、ul的list-style不显示问题</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2014-09-04T09:10:57.000Z"
+                              itemprop="datePublished">Sep 4 2014</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/前端/'>前端</a>
-                
-                <a data-pjax href='/tags/CSS/'>CSS</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/ol、ul的list-style不显示问题/">ol、ul的list-style不显示问题</a>
-            </h1>
+        <section class="post-content">
+            <p>今天在项目中遇到一个问题，我使用<strong>ol</strong>，并且在css里设置list-style不为none，但是始终显示不了序号，当然最初我认为是css样式层叠被覆盖，但是连最终神器都用上了：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">ol</span> <span class="rules">{ <span class="rule"><span class="attribute">list-style-type</span>:<span class="value"> decimal<span class="important">!important</span></span></span>; <span class="rule">}</span></span></div></pre></td></tr></table></figure>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T09:10:57.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                今天在项目中遇到一个问题，我使用ol，并且在css里设置list-style不为none，但是始终显示不了序号，当然最初我认为是css样式层叠被覆盖，但是连最终神器都用上了：
-1ol { list-style-type: decimal!important; }
+<p>问题却还是没有解决，我知道我该考虑其它原因了。</p>
+<p>很少见的，在Google里没有第一时间搜到答案。</p>
+<p>于是新建一个页面，发现一切正常，经过一番折腾，在reset.css里发现</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">body</span>, <span class="tag">div</span>, <span class="tag">ul</span>, <span class="tag">ol</span>......<span class="rules">{ <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>; <span class="rule">}</span></span></div></pre></td></tr></table></figure>
 
-问题却还是没有解决，我知道我该考虑其它原因了。
-很少见的，在Google里没有第一时间搜到答案。
-于是新建一个页面，发现一切正常，经过一番折腾，在reset.css里发现
-1
-                
-            </p>
-            
+<p>豁然开朗，是不是padding把显示序号的那一部分给设置没了？</p>
+<p>果然，问题就在这里了。padding设置去除，一切恢复正常。</p>
+
         </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/CSS/'>CSS</a>
-                
-                <a data-pjax href='/tags/前端/'>前端</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/CSS-Sprites/">CSS Sprites</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T09:06:21.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                在css开发中有一件非常令人头疼的东西：拼背景图片。比如一个项目中有三种按钮：button-normal, button-submit, button-cancel。一般的方式是个人手动在PSD中新建一个较大的画布，把三个按钮分别移到该画布上，最后通过background-position定位。这个过程中有两步是比较耗时且不合理的：
-1.在css中对需要的图标进行定位，尤其是集成度非常高的图片，一张图片中可能有数十个图标，而且图标之间的
-                
-            </p>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/JavaScript/'>JavaScript</a>
-                
-                <a data-pjax href='/tags/NodeJS/'>NodeJS</a>
-                
-                <a data-pjax href='/tags/Seajs/'>Seajs</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/This-is-NodeJS/">This is NodeJS</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T06:29:24.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                今天翻之前的目标记录，有一条”Write an article about NodeJS”被放在第一行，现在来完成它。
-关于NodeJS，我认为下面几个东西比较有意思：
-1.异步和回调；
-2.实时通信;
-3.模块化机制
-异步和回调
-前端工程师对这两个概念一定不会陌生，但是很多从Java或者C#转过来的JSer经常在这里出问题。由于对异步理解的薄弱，在使用最基础的ajax时写法粗糙，最常见的低级错误：
-// 请求
-function get
-                
-            </p>
+            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
             
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/2014/09/04/CSS-Sprites/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
+
+
     </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
 </main>
 
 
