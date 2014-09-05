@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Tag: 前端 | Hua Xu&#39;s Blog</title>
+  <title>引用，不是复制 | Hua Xu&#39;s Blog</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -205,7 +205,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
+                        <li id="navbar-title"><a href="#">引用，不是复制</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -224,131 +224,116 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/前端/' style='color:#D5D5D5'>前端</a>
+                      
+                      <a data-pjax href='/tags/JavaScript/' style='color:#D5D5D5'>JavaScript</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">引用，不是复制</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2014-09-05T00:55:34.000Z"
+                              itemprop="datePublished">Sep 5 2014</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/前端/'>前端</a>
-                
-                <a data-pjax href='/tags/JavaScript/'>JavaScript</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/05/引用，不是复制/">引用，不是复制</a>
-            </h1>
+        <section class="post-content">
+            <p>昨天在数据类型这块遇到了比较严重的问题，记录下来。问题稍后再说，先介绍点相关内容。</p>
+<h2 id="引子">引子</h2>
+<p>学习JavaSCript第一天，我们就知道JS中的数据类型有基本类型和引用类型，其中，基本类型包括以下五种：</p>
+<ul>
+<li>Undefined</li>
+<li>Null</li>
+<li>Boolean</li>
+<li>Number</li>
+<li>String</li>
+</ul>
+<p>另外一种是Object，是其它所有对象的基础类型，所以也有人把这两种类型分别称作原始类型和对象类型，不纠结这个。</p>
+<p>基本类型的值是按值访问的，所以都是<strong>不可变</strong>的，这个不可变并不是变量不可变，而是变量的值是不可变的，值当然是不能改变的。可以这么理解，在JS这个庞然大物的某一个位置，存放数字2，不管任何时候，只要指针(或者其它什么)指向这个位置，这个位置永远是2这个数字。引用类型的区别就在这里：</p>
+<pre><code><span class="keyword">var</span> coder = { name: <span class="string">'程序员'</span> }
+</code></pre><p>当改变obj的时候，对应位置的内容会随之改变。</p>
+<p>基础类型和引用类型还有一个表现上的区别是我们可以为引用类型的值添加属性和方法，比如上面的对象，可以随时为它添加新的属性：</p>
+<pre><code>coder.salary = <span class="string">'MORE'</span>;
+</code></pre><p>如果我想为一个字符串添加属性：</p>
+<pre><code>var today = 'It <span class="keyword">is</span> Friday';
+today.<span class="property">month</span> = <span class="number">9</span>;
+console.<span class="command">log</span>(today.<span class="property">month</span>);
+</code></pre><p>在控制台执行不会抛异常，但是today.month是undefined。按常理说，如果不能添加属性，那么在添加的时候就应该出现异常，而不是在添加完了以后告诉我添加的东西不见了，<strong>这是因为包装对象</strong>的存在。同样是创建一个字符串，如果用下面的方式：</p>
+<pre><code><span class="keyword">var</span> today = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'It is Friday'</span>);
+today.month = <span class="number">9</span>;
+<span class="built_in">console</span>.log(today.month);
+</code></pre><p>today.month就会是正常的9。相似的：</p>
+<pre><code><span class="keyword">var</span> today = <span class="string">'It is Friday'</span>;
+<span class="built_in">console</span>.log(today.length);
+</code></pre><p>既然基本类型没有属性，那么这个length属性是哪里来的？原因是在引用today属性的时候，JavaScript做了一件事情：new String(‘It is Friday’)把基本类型转换成字符串对象，再通过该对象调用属性和方法，调用完成之后销毁该对象。相应的，上面为字符串添加属性的过程中</p>
+<pre><code><span class="attribute">today.month </span>=<span class="string"> 9;</span>
+</code></pre><p>这一步可以分解成以下几步操作：</p>
+<pre><code>1.创建一个临时字符串对象；
+2.给临时对象赋值
+3.销毁临时对象
+</code></pre><p>当赋值之后再想获取这个属性，这个对象已经不存在了。这个临时对象就是所谓的<strong>包装对象</strong>。所以，<strong>如果确实有必要为基本类型添加属性和方法，一定要用对应的基础构造函数显式的创建对象。</strong></p>
+<p>最后补充一个Demo：</p>
+<pre><code><span class="keyword">var</span> today = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'Friday'</span>);
+<span class="keyword">var</span> theDay = <span class="string">'Friday'</span>;
+<span class="built_in">console</span>.log(today == theDay); <span class="comment">// 用==和===分别看看是什么结果</span>
+</code></pre><h2 id="问题">问题</h2>
+<p>下面是真正的问题，我尽量避免把具体业务写进来，把这个问题描述的更有通用性。流程如下：</p>
+<pre><code><span class="number">1.</span>在初始状态，从服务端端获取一个数组，并在客户端缓存它，数组里面存放若干个对象；
+    <span class="keyword">var</span> obj1 = { name: <span class="string">'jack'</span> };
+    <span class="keyword">var</span> obj2 = { name: <span class="string">'amy'</span> }
+    <span class="keyword">var</span> originArray = [obj1, obj2];
+<span class="number">2.</span>用户执行了某些操作，需要对数组的数据进行处理后传到服务端：
+    <span class="function"><span class="keyword">function</span> <span class="title">dataFormat</span><span class="params">()</span></span>{
+      <span class="keyword">var</span> postArray = originArray.slice();<span class="comment">// 返回一个新数组</span>
+      <span class="keyword">var</span> tempData;
+      <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = postArray.length; i &lt; len; i++) {
+        tempData = postArray[i];
+        postArray[i].name = tempData.name + <span class="string">'_'</span>;
+      }
+      <span class="keyword">return</span> postArray;
+    }
+<span class="number">3.</span>当第二次执行这个操作的时候，发现之前添加的<span class="string">'_'</span>会叠加，即出现多个下划线，导致传输数据不正确。
+</code></pre><p>相信在我一堆引子之后，再联系到这篇文章的标题，很多人一眼就看出了问题。问题在于：<strong>我误以为，用slice拷贝一个新数组，然后对这个新数组中的元素进行操作，就不会影响到原始对象</strong>，但是，虽然数组是不同的，但是数组中的元素(对象)的<strong>引用</strong>自始至终都是同一个位置。举个实际的例子，就会明白我当时的想法简直丧心病狂，我有两张招商银行信用卡，一张国内卡，一张国际卡，<strong>两张卡额度的指向都是银行的同一条数据</strong>，我拼命的刷国际卡，还以为不会影响到国内卡的额度。</p>
+<p>找到原因最后的解决方法也非常简单，只需要从原始数据生成操作数据的时候，做一个深拷贝，如underscore.js之类的很多类库都提供了这个方法，不过我的项目只有jQuery，所以jQuery的基本处理是这样(作为示例，不能处理多层嵌套)：</p>
+<pre><code>var postArray = <span class="matrix">[]</span>;
+<span class="keyword">for</span>(var <span class="built_in">i</span> = <span class="number">0</span>, len = <span class="transposed_variable">originArray.</span><span class="built_in">length</span>; <span class="built_in">i</span> &lt; len; <span class="built_in">i</span>++) <span class="cell">{
+  postArray.push($.extend({}, originArray[i]));
+}</span>
+</code></pre><p>underscore.js的实现方式：</p>
+<pre><code>    <span class="keyword">var</span> postArray =  <span class="number">_</span>.<span class="built_in">map</span>(originArray, <span class="number">_</span>.clone);
+</code></pre><p>就这么简单。</p>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-05T00:55:34.000Z"
-                      itemprop="datePublished">Sep 5 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                昨天在数据类型这块遇到了比较严重的问题，记录下来。问题稍后再说，先介绍点相关内容。
-引子
-学习JavaSCript第一天，我们就知道JS中的数据类型有基本类型和引用类型，其中，基本类型包括以下五种：
-
-Undefined
-Null
-Boolean
-Number
-String
-
-另外一种是Object，是其它所有对象的基础类型，所以也有人把这两种类型分别称作原始类型和对象类型，不纠结这个。
-基本类型的值是按值访问的，所以都是不可变的，这个
-                
-            </p>
-            
         </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/前端/'>前端</a>
-                
-                <a data-pjax href='/tags/CSS/'>CSS</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/ol、ul的list-style不显示问题/">ol、ul的list-style不显示问题</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T09:10:57.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                今天在项目中遇到一个问题，我使用ol，并且在css里设置list-style不为none，但是始终显示不了序号，当然最初我认为是css样式层叠被覆盖，但是连最终神器都用上了：
-1ol { list-style-type: decimal!important; }
-
-问题却还是没有解决，我知道我该考虑其它原因了。
-很少见的，在Google里没有第一时间搜到答案。
-于是新建一个页面，发现一切正常，经过一番折腾，在reset.css里发现
-1
-                
-            </p>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/CSS/'>CSS</a>
-                
-                <a data-pjax href='/tags/前端/'>前端</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/CSS-Sprites/">CSS Sprites</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T09:06:21.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                在css开发中有一件非常令人头疼的东西：拼背景图片。比如一个项目中有三种按钮：button-normal, button-submit, button-cancel。一般的方式是个人手动在PSD中新建一个较大的画布，把三个按钮分别移到该画布上，最后通过background-position定位。这个过程中有两步是比较耗时且不合理的：
-1.在css中对需要的图标进行定位，尤其是集成度非常高的图片，一张图片中可能有数十个图标，而且图标之间的
-                
-            </p>
+            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
             
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/2014/09/04/ol、ul的list-style不显示问题/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
+
+
     </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
 </main>
 
 
