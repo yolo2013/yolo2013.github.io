@@ -127,9 +127,9 @@ html, body, .container, .scroller, #pjax {
 
 .mp-pusher,
 .mp-level {
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 /* overlap */
@@ -350,6 +350,7 @@ div[data-level='1'] a {
 }
 
 .nexus {
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
