@@ -2,7 +2,12 @@
     font-family: "Constantia";
     src: url("../fonts/constantia.ttf");
 }
+@font-face {
+    font-family: "FreigTexProSem";
+    src: url("../fonts/FreigTexProSem.otf");
+}
+
 body {
     font-style: normal;
-    font-family: "Myriad Set Pro", "Lucida Grande", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
+    font-family: "FreigTexProSem", "Lucida Grande", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
 }
