@@ -1,442 +1,102 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Hua Xu&#39;s Blog</title>
-  <meta name="description" content="" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="MobileOptimized" content="320" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="/css/component.css" />
-  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-  <meta name="generator" content="Hua Xu's Blog">
-  <script src="http://static.duoshuo.com/embed.js"></script>
-  
-  
-  
-
-  
-
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>YiFei Yin</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="styles/override.css"/>
+    <link rel="stylesheet" href="styles/base.css"/>
+    <link rel="stylesheet" href="styles/layout.css"/>
 </head>
 <body>
-<div class="container">
-    <div class="mp-pusher" id="mp-pusher">
-        <i id="scroll-up" class="fa fa-angle-up"></i>
-        <nav id="mp-menu" class="mp-menu">
-            <div class="mp-level">
-                <a data-pjax class="back-home" style="font-size: 20px" href="/"><h2 ><i class="fa fa-home"></i>
-                        Hua Xu&#39;s Blog</h2></a>
-                <ul class="first-level">
-                    <li>
-                        <a class="fa fa-archive" href="#"><i class="fa fa-angle-left">
-                            </i>&nbsp;&nbsp;Archive</a>
-                        <div class="mp-level page-list">
-                            <h2 ><i class="fa fa-archive"></i>
-                                Archive</h2>
-                            <a class="mp-back" href="#">back</a>
-                            <form id="search-form" action="">
-                                <input type="text" class="search search-archive" placeholder="Search.."/>
-                            </form>
-                            <ul>
-                                <div class="mp-scroll">
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2014/09/05/引用，不是复制/">引用，不是复制</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2014/09/04/ol、ul的list-style不显示问题/">ol、ul的list-style不显示问题</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2014/09/04/CSS-Sprites/">CSS Sprites</a>
-                                </li>
-                                
-                                <li class="search-archive-li mp-pjax">
-                                    <a href="/2014/09/04/This-is-NodeJS/">This is NodeJS</a>
-                                </li>
-                                
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="fa fa-copy" href="#"><i class="fa fa-angle-left">
-                            </i>&nbsp;&nbsp;Categories</a>
 
-                        <div class="mp-level page-list">
-                            <h2 ><i class="fa fa-copy"></i>
-                                Categories</h2>
-                            <a class="mp-back" href="#">back</a>
-                            <form id="search-form" action="">
-                                <input type="text" class="search search-category" placeholder="Search.."/>
-                            </form>
-                            <ul>
-                                <div class="mp-scroll">
-                                
-                                <li class="search-category-li mp-pjax">
-                                    <a href="/categories/技术/">&nbsp;&nbsp;&nbsp;技术</a>
-                                    <small>4</small>
-                                </li>
-                                
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="fa fa-tags" href="#"><i class="fa fa-angle-left">
-                            </i>&nbsp;&nbsp;Tags</a>
-                        <div class="mp-level page-list">
-                            <h2 ><i class="fa fa-tags"></i>
-                                Tags</h2>
-                            <a class="mp-back" href="#">back</a>
-                            <form id="search-form" action="">
-                                <input type="text" class="search search-tag" placeholder="Search.."/>
-                            </form>
-                            <ul>
-                                <div class="mp-scroll">
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/-JavaScript--NodeJS--Seajs/">&nbsp;&nbsp;&nbsp;-JavaScript -NodeJS -Seajs</a>
-                                    <small>0</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/CSS/">&nbsp;&nbsp;&nbsp;CSS</a>
-                                    <small>2</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/CSS-scrites/">&nbsp;&nbsp;&nbsp;CSS scrites</a>
-                                    <small>0</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/JavaScript/">&nbsp;&nbsp;&nbsp;JavaScript</a>
-                                    <small>2</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/JavaScript,NodeJS,Seajs/">&nbsp;&nbsp;&nbsp;JavaScript,NodeJS,Seajs</a>
-                                    <small>0</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/NodeJS/">&nbsp;&nbsp;&nbsp;NodeJS</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/Seajs/">&nbsp;&nbsp;&nbsp;Seajs</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/css/">&nbsp;&nbsp;&nbsp;css</a>
-                                    <small>0</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/js/">&nbsp;&nbsp;&nbsp;js</a>
-                                    <small>0</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/前端/">&nbsp;&nbsp;&nbsp;前端</a>
-                                    <small>3</small>
-                                </li>
-                                
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
-                    
-                    <li class="mp-pjax"><a class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a></li>
-                    <li><a class="fa fa-github" href="https://github.com/yolo2013" target="_blank">&nbsp;&nbsp;&nbsp;Github</a></li>
+<nav class="navbar navbar-default navbar-fixed-top global-header">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="logo" href="#"></a>
 
-                </ul>
-
-            </div>
-        </nav>
-        <div id="pjax">
-            <div class="pjax-hidden" style="display: none">
-                
-                    <a  data-pjax href="/2014/09/05/引用，不是复制/">引用，不是复制</a>
-                
-                    <a  data-pjax href="/2014/09/04/ol、ul的list-style不显示问题/">ol、ul的list-style不显示问题</a>
-                
-                    <a  data-pjax href="/2014/09/04/CSS-Sprites/">CSS Sprites</a>
-                
-                    <a  data-pjax href="/2014/09/04/This-is-NodeJS/">This is NodeJS</a>
-                
-                
-                    <a data-pjax href="/categories/技术/">&nbsp;&nbsp;技术</a>
-                
-                
-                    <a data-pjax href="/tags/-JavaScript--NodeJS--Seajs/">&nbsp;&nbsp;-JavaScript -NodeJS -Seajs</a>
-                
-                    <a data-pjax href="/tags/CSS/">&nbsp;&nbsp;CSS</a>
-                
-                    <a data-pjax href="/tags/CSS-scrites/">&nbsp;&nbsp;CSS scrites</a>
-                
-                    <a data-pjax href="/tags/JavaScript/">&nbsp;&nbsp;JavaScript</a>
-                
-                    <a data-pjax href="/tags/JavaScript,NodeJS,Seajs/">&nbsp;&nbsp;JavaScript,NodeJS,Seajs</a>
-                
-                    <a data-pjax href="/tags/NodeJS/">&nbsp;&nbsp;NodeJS</a>
-                
-                    <a data-pjax href="/tags/Seajs/">&nbsp;&nbsp;Seajs</a>
-                
-                    <a data-pjax href="/tags/css/">&nbsp;&nbsp;css</a>
-                
-                    <a data-pjax href="/tags/js/">&nbsp;&nbsp;js</a>
-                
-                    <a data-pjax href="/tags/前端/">&nbsp;&nbsp;前端</a>
-                
-                <a data-pjax class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a>
-            </div>
-            <nav class="nexus">
-                <li  style="border-left: 1px solid #c6d0da;">
-                    <a id="trigger" href="#"><i class="fa fa-bars"></i></a>
-                </li>
-                <li ><a id="nexus-back" data-pjax href="/">Hua Xu&#39;s Blog</a></li>
-                
-                <div id="nav-container">
-                    <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
-                        <li id="navbar-toc" style="border-left: none">
-                            <a style="padding-right: 15px">
-                                <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
-                            </a>
-                            <div class="hidden-box">
-                                <ul id="toc"></ul>
-                            </div>
-                        </li>
-                    </div>
-                </div>
-                
-            </nav>
-
-            <div class="scroller">
-            <div class="scroller-inner">
-
-
-<!-- -->
-<!--<body class="home-template">-->
-<!---->
-  
-<main class="content" role="main">
-
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/前端/'>前端</a>
-                
-                <a data-pjax href='/tags/JavaScript/'>JavaScript</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/05/引用，不是复制/">引用，不是复制</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-05T00:55:34.000Z"
-                      itemprop="datePublished">Sep 5 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                昨天在数据类型这块遇到了比较严重的问题，记录下来。问题稍后再说，先介绍点相关内容。
-引子
-学习JavaSCript第一天，我们就知道JS中的数据类型有基本类型和引用类型，其中，基本类型包括以下五种：
-
-Undefined
-Null
-Boolean
-Number
-String
-
-另外一种是Object，是其它所有对象的基础类型，所以也有人把这两种类型分别称作原始类型和对象类型，不纠结这个。
-基本类型的值是按值访问的，所以都是不可变的，这个
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/前端/'>前端</a>
-                
-                <a data-pjax href='/tags/CSS/'>CSS</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/ol、ul的list-style不显示问题/">ol、ul的list-style不显示问题</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T09:10:57.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                今天在项目中遇到一个问题，我使用ol，并且在css里设置list-style不为none，但是始终显示不了序号，当然最初我认为是css样式层叠被覆盖，但是连最终神器都用上了：
-1ol { list-style-type: decimal!important; }
-
-问题却还是没有解决，我知道我该考虑其它原因了。
-很少见的，在Google里没有第一时间搜到答案。
-于是新建一个页面，发现一切正常，经过一番折腾，在reset.css里发现
-1
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/CSS/'>CSS</a>
-                
-                <a data-pjax href='/tags/前端/'>前端</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/CSS-Sprites/">CSS Sprites</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T09:06:21.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                在css开发中有一件非常令人头疼的东西：拼背景图片。比如一个项目中有三种按钮：button-normal, button-submit, button-cancel。一般的方式是个人手动在PSD中新建一个较大的画布，把三个按钮分别移到该画布上，最后通过background-position定位。这个过程中有两步是比较耗时且不合理的：
-1.在css中对需要的图标进行定位，尤其是集成度非常高的图片，一张图片中可能有数十个图标，而且图标之间的
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/JavaScript/'>JavaScript</a>
-                
-                <a data-pjax href='/tags/NodeJS/'>NodeJS</a>
-                
-                <a data-pjax href='/tags/Seajs/'>Seajs</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2014/09/04/This-is-NodeJS/">This is NodeJS</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2014-09-04T06:29:24.000Z"
-                      itemprop="datePublished">Sep 4 2014</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                今天翻之前的目标记录，有一条”Write an article about NodeJS”被放在第一行，现在来完成它。
-关于NodeJS，我认为下面几个东西比较有意思：
-1.异步和回调；
-2.实时通信;
-3.模块化机制
-异步和回调
-前端工程师对这两个概念一定不会陌生，但是很多从Java或者C#转过来的JSer经常在这里出问题。由于对异步理解的薄弱，在使用最基础的ajax时写法粗糙，最常见的低级错误：
-// 请求
-function get
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
-</main>
-
-
-  
-<footer class="site-footer">
-    
-    <div class="inner">
-        <section class="copyright"><a href="/"></a> &copy; Hua Xu's Blog 2014</section>
-        <section class="poweredby">Published with <a target="_blank" href="http://hexo.io/">Hexo   </a> and Theme by <a target="_blank" href="https://github.com/yuche/hexo-theme-kael">Kael</a></section>
+            <p class="sub-logo">Design + UX + Finance</p>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right global-nav">
+                <li class="active"><a href="#">PORTFOLIO</a></li>
+                <li><a href="#about">ABOUT ME</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#contact">RESUME</a></li>
+            </ul>
+        </div>
     </div>
-</footer>
-</div>
-</div><!-- /scroller -->
+</nav>
 
-</div><!-- /pusher -->
-</div><!-- /container -->
-</div>
-
-<!-- Easter eggs -->
-
-<div class="egg animated">
-    <a id="close-button" href="#">X</a>
-    <div class="block">
-        <div class="loading">
-            <span class="ball1"></span>
-            <span class="ball2"></span>
+<div class="main-container">
+    <div class="container">
+        <div class="row" id="content_list">
         </div>
     </div>
 </div>
-  
-<script src="//cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
-<script>
-    if (!window.jQuery) {
-        var script = document.createElement('script');
-        script.src = "/js/jquery.min.js";
-        document.body.appendChild(script);
-    }
+
+<footer class="global-footer">
+    <div class="container">
+        <div class="col-sm-10">
+            <p >Yifei Yin | Interaction Designer + UX Researcher + Corporate Finance Analyst</p>
+        </div>
+        <div class="hidden-xs col-sm-2 text-right">
+            <a href="#" title="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" title="instagram"><i class="fa fa-instagram"></i></a>
+        </div>
+
+    </div>
+</footer>
+
+<script id="image_list" type="text/html">
+    <div class="col-sm-6 col-md-4 image-list-item">
+        <div class="thumbnail">
+            <div class="caption">
+                <h4 class="text-center">${title}</h4>
+
+                <p class="text-center image-desc">${sub}</p>
+            </div>
+            <img src="images/home/${$index + 1}.png" alt="">
+
+            <div class="desc-container">
+                <p class="small">${desc}</p>
+            </div>
+        </div>
+    </div>
 </script>
-<script type="text/javascript" src="/js/lib.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
 
+<script src="jquery/jquery-1.9.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="jquery.template.js"></script>
+<script>
+    var list = [{
+        title: 'City Bike System',
+        sub: 'System & UI Design | Business Model',
+        desc: 'By designing a feedback & credit system which goes along with an innovated business model, this project aimed to give better user experience and reduce the city bike system’s reliance on government subsidies.'
+    }, {
+        title: 'Someet',
+        sub: 'UI & UX Design | Financing',
+        desc: 'An online community that helps young people explore and experience more about life, and in turn, to know more about themselves.'
+    }, {
+        title: 'Applysquare',
+        sub: 'UX Research | PM | UI Design',
+        desc: 'Enhancing Applysquare’s studing abroad feature to deliver information accurately. This feature helps to save time up to 50% for students in collecting information on studying abroad.'
+    }, {
+        title: 'Health & Retirement Study',
+        sub: 'Social Economics Research | Data Analysis',
+        desc: 'CHARLS is a survey that aims to find out the health and retirement condition of the old in China. Interviewed over 100 people, processed data of over 18000 people and drafted reports.'
+    }, {
+        title: 'Hutong Map',
+        sub: 'Design | Curation',
+        desc: 'Co-designed the Hutong Smell & Cruise map and the map was presented on the Beijing Design Week. The map intend to arouse people’s feeling about Hutong, a traditional Chinese building.'
+    }, {
+        title: 'Tencent',
+        sub: 'Interaction Design',
+        desc: 'Tencent is one of the 3 tech tycoons in China. Worked on prototypes and wireframes at in the Internet, Social and user experience department.'
+    }];
 
-
-
-
-
-
+    $('#image_list').tmpl(list).appendTo('#content_list')
+</script>
 </body>
 </html>

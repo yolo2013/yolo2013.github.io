@@ -1,0 +1,23 @@
+.navbar-default {
+    background: #fff;
+    border-color: #D9D9D9;
+}
+
+.navbar-default .global-nav > .active > a,
+.navbar-default .global-nav > .active > a:focus,
+.navbar-default .global-nav > .active > a:hover {
+    background: #fff;
+    text-decoration: underline;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+    font-size: 14px;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: rgb(51, 51, 51);
+}
+
+.thumbnail {
+    border: none;
+    margin-bottom: 0;
+}
