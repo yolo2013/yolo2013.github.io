@@ -1,7 +1,7 @@
-/*@font-face {*/
-    /*font-family: "FreightPro";*/
-    /*src: url("https://typekit.com/fonts/freight-text-pro");*/
-/*}*/
+@font-face {
+    font-family: "Constantia";
+    src: url("../fonts/constantia.ttf");
+}
 body {
     font-style: normal;
     font-family: "Myriad Set Pro", "Lucida Grande", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
