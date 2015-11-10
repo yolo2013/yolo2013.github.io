@@ -68,7 +68,7 @@
 
                 <p class="text-center image-desc">${sub}</p>
             </div>
-            <a class="image-link-container" target="_blank" href="http://www.baidu.com">
+            <a class="image-link-container" target="_blank" href="${link}">
                 <img src="images/home/${$index + 1}.png" alt="">
             </a>
 
@@ -87,11 +87,13 @@
     var list = [{
         title: 'City Bike System',
         sub: 'System & UI Design | Business Model',
-        desc: 'By designing a feedback & credit system which goes along with an innovated business model, this project aimed to give better user experience and reduce the city bike system’s reliance on government subsidies.'
+        desc: 'By designing a feedback & credit system which goes along with an innovated business model, this project aimed to give better user experience and reduce the city bike system’s reliance on government subsidies.',
+        link: ''
     }, {
         title: 'Someet',
         sub: 'UI & UX Design | Financing',
-        desc: 'An online community that helps young people explore and experience more about life, and in turn, to know more about themselves.'
+        desc: 'An online community that helps young people explore and experience more about life, and in turn, to know more about themselves.',
+        link: 'https://medium.com/@yifeiyin/find-your-people-meet-yourself-8d9985e8f847'
     }, {
         title: 'Applysquare',
         sub: 'UX Research | PM | UI Design',
@@ -99,15 +101,18 @@
     }, {
         title: 'Health & Retirement Study',
         sub: 'Social Economics Research | Data Analysis',
-        desc: 'CHARLS is a survey that aims to find out the health and retirement condition of the old in China. Interviewed over 100 people, processed data of over 18000 people and drafted reports.'
+        desc: 'CHARLS is a survey that aims to find out the health and retirement condition of the old in China. Interviewed over 100 people, processed data of over 18000 people and drafted reports.',
+        link: 'https://medium.com/@yifeiyin/do-you-know-anything-about-this-graying-nation-7cfdaa472d03'
     }, {
         title: 'Hutong Map',
         sub: 'Design | Curation',
-        desc: 'Co-designed the Hutong Smell & Cruise map and the map was presented on the Beijing Design Week. The map intend to arouse people’s feeling about Hutong, a traditional Chinese building.'
+        desc: 'Co-designed the Hutong Smell & Cruise map and the map was presented on the Beijing Design Week. The map intend to arouse people’s feeling about Hutong, a traditional Chinese building.',
+        link: 'https://medium.com/@yifeiyin/what-s-the-smell-of-hutong-713bc35e8bd6'
     }, {
         title: 'Tencent',
         sub: 'Interaction Design',
-        desc: 'Tencent is one of the 3 tech tycoons in China. Worked on prototypes and wireframes at in the Internet, Social and user experience department.'
+        desc: 'Tencent is one of the 3 tech tycoons in China. Worked on prototypes and wireframes at in the Internet, Social and user experience department.',
+        link: ''
     }];
 
     $('#image_list').tmpl(list).appendTo('#content_list')
