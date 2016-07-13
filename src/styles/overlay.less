@@ -1,0 +1,27 @@
+.gl-background-overlay {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+
+  &:before {
+    background-color: #000000;
+    opacity: 0.7;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+.gl-background-overlay.obsidian {
+  background-image: url(//obsidiandemo.files.wordpress.com/2015/05/background.jpg);
+  //background-image: url(../images/bltn.jpg);
+}

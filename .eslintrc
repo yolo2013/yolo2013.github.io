@@ -1,0 +1,75 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    // 警告
+
+    // 建议使用单引号
+    "quotes": [1, "single"],
+
+    // 不允许使用debugger
+    "no-debugger": 1,
+
+    // 不允许使用未定义的变量
+    "no-undef": 1,
+
+    // 不允许多余的分号
+    "no-extra-semi": 1,
+
+    // 是否使用驼峰命名法
+    "camelcase": 1,
+
+    // if while function 后面的{必须与if在同一行，java风格。
+    "brace-style": [1, "1tbs", { "allowSingleLine": true }],
+
+    // 控制逗号前后的空格
+    "comma-spacing": [1, { "before": false, "after": true }],
+
+    // 缩进风格
+    "indent": [1, 2, {"SwitchCase": 1}],
+
+    // 圈复杂度不大于10
+    "complexity": [1, 10],
+
+    // 多余的感叹号转布尔型
+    "no-extra-boolean-cast": 1,
+
+    // 错误
+
+    // 语句不使用分号结尾
+    "semi": [2, "never"],
+
+    // 数组中多出逗号
+    "no-sparse-arrays": 2,
+
+    // 禁止覆盖原生对象
+    "no-native-reassign": 2,
+
+    // 方法的参数中不允许有重复值
+    "no-dupe-args": 2,
+
+    // 定义对象时不允许有重复的键
+    "no-dupe-keys": 2,
+
+    // if else while for do后面的代码块是否需要{ }包围
+    "curly": [2, "all"],
+
+    // 不允许在return、throw、continue、break等中断语句之后出现代码，因为这些代码永远不会被执行到
+    "no-unreachable": 2,
+
+    // 判断一个数是否是NaN的时候不允许使用foo === NaN这样的操作，而是使用isNaN函数进行判断
+    "use-isnan": 2,
+
+    // typeof的结果必须和一个有效的字符串进行比较，如typeof foo === 'strnig'即是不合法的字符串
+    "valid-typeof": 2,
+
+    // 不允许重复定义变量
+    "no-redeclare": 2
+
+  }
+}

@@ -1,0 +1,33 @@
+body {
+  color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  line-height: 1.625;
+  font-family: "HYQiHei", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@font-face {
+  font-family: 'HYQiHei';
+  src: url("../fonts/HYQiHei-50S.otf") format("opentype");
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.gl-main {
+  position: relative;
+  padding: 0 20px;
+}
+a {
+  text-decoration: none;
+  background: transparent;
+}
+a:-webkit-any-link {
+  color: inherit;
+  cursor: auto;
+}
+img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
